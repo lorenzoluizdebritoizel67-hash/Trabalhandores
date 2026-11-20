@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-PT">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>HST - Contato Analisador</title>
+  <title>HST - Contacto Analisador</title>
   <style>
     * {
       box-sizing: border-box;
@@ -26,7 +26,7 @@
       flex-direction: column;
       align-items: center;
       justify-content: flex-end;
-      /* Troque '332889.jpg' pelo link direto da imagem se não for subir a foto no repositório */
+      /* Coloca o ficheiro 332889.jpg na mesma pasta do index.html no GitHub ou troca por um link direto */
       background-image:
         linear-gradient(
           to bottom,
@@ -36,7 +36,6 @@
           rgba(0, 0, 0, 0.99) 100%
         ),
         url("332889.jpg");
-      
       background-position: center top;
       background-repeat: no-repeat;
       background-size: cover;
@@ -74,7 +73,7 @@
       transform: scale(0.99);
     }
 
-    /* Fica escondido até o usuário clicar no botão */
+    /* Fica oculto até o utilizador clicar no botão */
     .modal-backdrop {
       position: fixed;
       inset: 0;
@@ -303,7 +302,7 @@
       );
 
       feedbackMsg.style.color = "#86efac";
-      feedbackMsg.textContent = "Abrindo seu aplicativo de e-mail para enviar...";
+      feedbackMsg.textContent = "A abrir a aplicação de e-mail para enviar...";
 
       window.location.href = `mailto:${ANALYZER_EMAIL}?subject=${subject}&body=${body}`;
     });
