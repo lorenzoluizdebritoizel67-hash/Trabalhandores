@@ -100,7 +100,6 @@
     }
 
     select,
-    input,
     textarea {
       width: 100%;
       padding: 10px 12px;
@@ -112,7 +111,6 @@
     }
 
     select:focus,
-    input:focus,
     textarea:focus {
       outline: none;
       border-color: #3b82f6;
@@ -121,15 +119,6 @@
     textarea {
       min-height: 95px;
       resize: vertical;
-    }
-
-    .custom-setor-wrap {
-      display: none;
-      margin-top: 8px;
-    }
-
-    .custom-setor-wrap.visible {
-      display: block;
     }
 
     .actions {
@@ -189,20 +178,11 @@
           <label for="setorSelect">Em qual setor você quer ficar?</label>
           <select id="setorSelect" required>
             <option value="">Selecione um setor</option>
-            <option value="Atendimento">Atendimento</option>
-            <option value="Suporte Técnico">Suporte Técnico</option>
-            <option value="Vendas">Vendas</option>
-            <option value="Administração">Administração</option>
-            <option value="Outro">Outro (digitar)</option>
+            <option value="Procurar clientes">Procurar clientes</option>
+            <option value="Espalhar QR codes">Espalhar QR codes</option>
+            <option value="Vender os scripts">Vender os scripts</option>
+            <option value="Testar os scripts">Testar os scripts</option>
           </select>
-
-          <div class="custom-setor-wrap" id="customSetorWrap">
-            <input
-              type="text"
-              id="customSetorInput"
-              placeholder="Digite o setor desejado"
-            />
-          </div>
         </div>
 
         <div class="field">
@@ -233,8 +213,6 @@
     const modalBackdrop = document.getElementById("modalBackdrop");
     const analyzerForm = document.getElementById("analyzerForm");
     const setorSelect = document.getElementById("setorSelect");
-    const customSetorWrap = document.getElementById("customSetorWrap");
-    const customSetorInput = document.getElementById("customSetorInput");
     const motivoInput = document.getElementById("motivoInput");
     const feedbackMsg = document.getElementById("feedbackMsg");
 
@@ -259,22 +237,10 @@
       }
     });
 
-    setorSelect.addEventListener("change", () => {
-      const isOutro = setorSelect.value === "Outro";
-      customSetorWrap.classList.toggle("visible", isOutro);
-      customSetorInput.required = isOutro;
-      if (!isOutro) {
-        customSetorInput.value = "";
-      }
-    });
-
     analyzerForm.addEventListener("submit", (event) => {
       event.preventDefault();
 
-      const setorEscolhido =
-        setorSelect.value === "Outro"
-          ? customSetorInput.value.trim()
-          : setorSelect.value.trim();
+      const setorEscolhido = setorSelect.value.trim();
       const motivo = motivoInput.value.trim();
 
       if (!setorEscolhido || !motivo) {
